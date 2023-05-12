@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_task_2/widgets/bottom_navigation_bar.dart';
 import 'package:test_task_2/widgets/text_input.dart';
 
 import 'data/data.dart';
@@ -61,6 +62,7 @@ class MainApp extends StatelessWidget {
             ],
           ),
         ),
+        bottomNavigationBar: const BottomNavigationBarWidget(),
       ),
     );
   }
