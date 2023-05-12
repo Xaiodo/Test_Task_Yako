@@ -8,7 +8,7 @@ One of my favorite hobbies is playing volleyball and enjoying video games with m
 
 ## Screenshot of my work:
 
-![my_work](https://cdn.discordapp.com/attachments/1046399512526205038/1106658961597411398/image.png)
+![my_work](https://cdn.discordapp.com/attachments/1046399512526205038/1106665114523943012/image.png)
 
 ## Screenshot of the task:
 
