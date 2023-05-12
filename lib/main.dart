@@ -27,7 +27,7 @@ class MainApp extends StatelessWidget {
                 height: 50,
                 child: Row(
                   children: [
-                    Expanded(flex: 4, child: TextInputWidget()),
+                    Expanded(flex: 5, child: TextInputWidget()),
                     SizedBox(
                       width: 10,
                     ),
