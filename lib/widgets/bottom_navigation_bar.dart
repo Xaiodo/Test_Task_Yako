@@ -16,7 +16,7 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
     BottomTab(icon: Icons.notifications_none_outlined, label: 'Notifications'),
     BottomTab(icon: Icons.more_horiz_outlined, label: 'More'),
   ];
-  BottomTab _selectedTab = const BottomTab(icon: Icons.chat, label: 'Chats');
+  int _selectedTab = 0;
   @override
   Widget build(BuildContext context) => SafeArea(
         child: Material(
@@ -28,7 +28,7 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
                 (index) => InkWell(
                   onTap: () {
                     setState(() {
-                      _selectedTab = bottomNavs[index];
+                      _selectedTab = index;
                     });
                   },
                   splashFactory: NoSplash.splashFactory,
@@ -47,20 +47,20 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
                           alignment: Alignment.topCenter,
                           height: 2,
                           width: 40,
-                          color: const Color(0xffc13a8f).withOpacity(
-                              _selectedTab == bottomNavs[index] ? 1 : 0),
+                          color: const Color(0xffc13a8f)
+                              .withOpacity(_selectedTab == index ? 1 : 0),
                         ),
                         const SizedBox(height: 10),
                         Icon(
                           bottomNavs[index].icon,
-                          color: _selectedTab == bottomNavs[index]
+                          color: _selectedTab == index
                               ? const Color(0xffc13a8f)
                               : Colors.grey,
                         ),
                         Text(
                           bottomNavs[index].label,
                           style: TextStyle(
-                            color: _selectedTab == bottomNavs[index]
+                            color: _selectedTab == index
                                 ? const Color(0xffc13a8f)
                                 : Colors.grey,
                           ),
