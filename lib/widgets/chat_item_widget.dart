@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:test_task_2/models/category.dart';
 
 class ChatItem extends StatelessWidget {
-  final String imageUrl;
+  final List<String> imageUrls;
   final String name;
   final String message;
   final String time;
@@ -10,7 +10,7 @@ class ChatItem extends StatelessWidget {
 
   const ChatItem({
     super.key,
-    required this.imageUrl,
+    required this.imageUrls,
     required this.name,
     required this.message,
     required this.time,
@@ -21,15 +21,84 @@ class ChatItem extends StatelessWidget {
   Widget build(BuildContext context) => SizedBox(
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            CircleAvatar(
-              backgroundImage: NetworkImage(
-                imageUrl,
+            if (imageUrls.length > 1)
+              SizedBox(
+                height: 70,
+                width: 70,
+                child: Stack(
+                  children: [
+                    Positioned(
+                      top: 2,
+                      left: 16,
+                      child: CircleAvatar(
+                        backgroundImage: NetworkImage(
+                          imageUrls.last,
+                        ),
+                        radius: 26,
+                      ),
+                    ),
+                    Positioned(
+                      right: 16,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(
+                            color: Colors.white,
+                            width: 3,
+                          ),
+                        ),
+                        child: CircleAvatar(
+                          backgroundImage: NetworkImage(
+                            imageUrls.first,
+                          ),
+                          radius: 26,
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      top: 35,
+                      left: 35,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: const Color(0xff0f476d),
+                          shape: BoxShape.rectangle,
+                          border: Border.all(width: 2, color: Colors.white),
+                          borderRadius: const BorderRadius.all(
+                            Radius.circular(20),
+                          ),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 8,
+                            vertical: 4,
+                          ),
+                          child: Text(
+                            '+${imageUrls.length - 2}',
+                            style: const TextStyle(
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
-              radius: 26,
-            ),
-            const SizedBox(
-              width: 20,
+            if (imageUrls.length == 1)
+              Container(
+                alignment: Alignment.centerLeft,
+                width: 70,
+                child: CircleAvatar(
+                  backgroundImage: NetworkImage(
+                    imageUrls.first,
+                  ),
+                  radius: 28,
+                ),
+              ),
+            SizedBox(
+              width: 10,
             ),
             Expanded(
               child: Column(
@@ -87,6 +156,7 @@ class ChatItem extends StatelessWidget {
                             child: Text(
                               categories[index]!.name,
                               style: TextStyle(
+                                fontWeight: FontWeight.bold,
                                 color: categories[index]!.secondaryColor,
                               ),
                             ),

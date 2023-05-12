@@ -50,7 +50,7 @@ class MainApp extends StatelessWidget {
                     thickness: 1,
                   ),
                   itemBuilder: (context, index) => ChatItem(
-                    imageUrl: chats[index].imageUrl,
+                    imageUrls: chats[index].imageUrls,
                     name: chats[index].name,
                     message: chats[index].message,
                     time: chats[index].time,
