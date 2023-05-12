@@ -144,29 +144,32 @@ class ChatItem extends StatelessWidget {
                       height: 10,
                     ),
                     if (categories.isNotEmpty)
-                      Row(
-                        children: [
-                          ...List.generate(
-                            categories.length,
-                            (index) => Container(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 10,
-                                vertical: 5,
-                              ),
-                              decoration: BoxDecoration(
-                                color: categories[index]!.primaryColor,
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                              child: Text(
-                                categories[index]!.name,
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: categories[index]!.secondaryColor,
+                      SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          children: categories
+                              .map(
+                                (category) => Container(
+                                  margin: const EdgeInsets.only(left: 5),
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 10,
+                                    vertical: 5,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: category!.primaryColor,
+                                    borderRadius: BorderRadius.circular(20),
+                                  ),
+                                  child: Text(
+                                    category.name,
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: category.secondaryColor,
+                                    ),
+                                  ),
                                 ),
-                              ),
-                            ),
-                          )
-                        ],
+                              )
+                              .toList(),
+                        ),
                       )
                   ],
                 ),
