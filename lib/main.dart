@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:test_task_2/widgets/text_input.dart';
+
+import 'widgets/filter_chats_widget.dart';
 
 void main() {
   runApp(MainApp());
@@ -12,8 +15,32 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: _appBar,
-        body: Center(
-          child: Text('Hello World!'),
+        body: const Padding(
+          padding: EdgeInsets.all(20),
+          child: Column(
+            children: [
+              SizedBox(
+                height: 50,
+                child: Row(
+                  children: [
+                    Expanded(flex: 4, child: TextInputWidget()),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: FilterChatsWidget(
+                        color: Color(0xffc8509b),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+            ],
+          ),
         ),
       ),
     );
