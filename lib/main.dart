@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_task_2/my_flutter_app_icons.dart';
 import 'package:test_task_2/widgets/bottom_navigation_bar.dart';
 import 'package:test_task_2/widgets/text_input.dart';
 
@@ -74,7 +75,7 @@ class MainApp extends StatelessWidget {
     actions: [
       IconButton(
         onPressed: () {},
-        icon: const Icon(Icons.add_circle_outline_sharp),
+        icon: const Icon(MyFlutterApp.addChat),
       ),
     ],
     leading: Container(

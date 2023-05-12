@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_task_2/my_flutter_app_icons.dart';
 
 class FilterChatsWidget extends StatelessWidget {
   final Color color;
@@ -16,7 +17,7 @@ class FilterChatsWidget extends StatelessWidget {
         child: IconButton(
           onPressed: () {},
           icon: Icon(
-            Icons.menu,
+            MyFlutterApp.sliders,
             size: 30,
             color: color,
           ),

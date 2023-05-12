@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:test_task_2/models/bottom_tab.dart';
+import 'package:test_task_2/my_flutter_app_icons.dart';
 
 class BottomNavigationBarWidget extends StatefulWidget {
   const BottomNavigationBarWidget({super.key});
@@ -11,7 +12,7 @@ class BottomNavigationBarWidget extends StatefulWidget {
 
 class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
   final List<BottomTab> bottomNavs = const [
-    BottomTab(icon: Icons.chat, label: 'Chats'),
+    BottomTab(icon: MyFlutterApp.chat, label: 'Chats'),
     BottomTab(icon: Icons.notifications_none_outlined, label: 'Notifications'),
     BottomTab(icon: Icons.more_horiz_outlined, label: 'More'),
   ];

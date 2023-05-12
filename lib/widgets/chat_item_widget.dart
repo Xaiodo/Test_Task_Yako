@@ -20,7 +20,7 @@ class ChatItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) => SizedBox(
         child: Padding(
-          padding: EdgeInsets.symmetric(
+          padding: const EdgeInsets.symmetric(
             vertical: 10,
           ),
           child: Row(
