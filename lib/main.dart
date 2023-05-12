@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:test_task_2/widgets/text_input.dart';
 
+import 'data/data.dart';
+import 'widgets/chat_item_widget.dart';
 import 'widgets/filter_chats_widget.dart';
 
 void main() {
@@ -8,6 +10,7 @@ void main() {
 }
 
 class MainApp extends StatelessWidget {
+  final List<ChatItem> chats = Data().chats;
   MainApp({super.key});
 
   @override
@@ -15,11 +18,11 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: _appBar,
-        body: const Padding(
-          padding: EdgeInsets.all(20),
+        body: Padding(
+          padding: const EdgeInsets.all(20),
           child: Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 50,
                 child: Row(
                   children: [
@@ -36,8 +39,24 @@ class MainApp extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
+              ),
+              Expanded(
+                child: ListView.separated(
+                  physics: const AlwaysScrollableScrollPhysics(),
+                  itemCount: chats.length,
+                  separatorBuilder: (context, index) => const Divider(
+                    thickness: 1,
+                  ),
+                  itemBuilder: (context, index) => ChatItem(
+                    imageUrl: chats[index].imageUrl,
+                    name: chats[index].name,
+                    message: chats[index].message,
+                    time: chats[index].time,
+                    categories: chats[index].categories,
+                  ),
+                ),
               ),
             ],
           ),
